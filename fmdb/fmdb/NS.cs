@@ -8,5 +8,53 @@ namespace fmdb
 {
     class NS
     {
+        // Campos
+
+        string _titulo;
+        string _anio;
+        int _id;
+        bool _reseniada;
+        string _url;
+
+        // Propiedades
+
+        public string Titulo
+        {
+            get { return _titulo; }
+            set { _titulo = value; }
+        }
+
+        public string Anio
+        {
+            get { return _anio; }
+            set
+            {
+                if (value.Length == 4)
+                    _anio = value;
+            }
+        }
+
+        public int ID
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
+        public bool Reseniada
+        {
+            get { return _reseniada; }
+            set { _reseniada = value; }
+        }
+
+        public string URL
+        {
+            get { return _url; }
+            set
+            {
+                if (value.EndsWith("wordpress.com"))
+                    _url = value;
+            }
+        }
+
     }
 }
