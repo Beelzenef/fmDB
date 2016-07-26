@@ -6,18 +6,21 @@
         xmlns:local="clr-namespace:fmdb"
         mc:Ignorable="d"
         Title="Next Stop!" Height="289.656" Width="672.845">
+    <Window.DataContext>
+        <local:NSVM/>
+    </Window.DataContext>
     <Grid>
         <GroupBox x:Name="grB_Titulo" Header="Titulo" HorizontalAlignment="Left" Height="62" Margin="38,42,0,0" VerticalAlignment="Top" Width="283">
-            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25" Margin="4,11,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="263"/>
+            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25" Margin="4,11,0,0" TextWrapping="Wrap" Text="{Binding Titulo}" VerticalAlignment="Top" Width="263"/>
         </GroupBox>
         <GroupBox x:Name="grB_Resenia" Header="Reseñada" HorizontalAlignment="Left" Height="62" Margin="356,125,0,0" VerticalAlignment="Top" Width="283">
             <ComboBox x:Name="Reseniada" HorizontalAlignment="Left" Height="31" Margin="11,5,0,0" VerticalAlignment="Top" Width="256"/>
         </GroupBox>
         <GroupBox x:Name="grB_Anio" Header="Año" HorizontalAlignment="Left" Height="62" Margin="38,125,0,0" VerticalAlignment="Top" Width="283">
-            <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="25" Margin="4,11,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="263"/>
+            <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="25" Margin="4,11,0,0" TextWrapping="Wrap" Text="{Binding Anio}" VerticalAlignment="Top" Width="263"/>
         </GroupBox>
         <GroupBox x:Name="grB_URL" Header="URL" HorizontalAlignment="Left" Height="62" Margin="356,42,0,0" VerticalAlignment="Top" Width="283">
-            <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="25" Margin="4,11,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="263"/>
+            <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="25" Margin="4,11,0,0" TextWrapping="Wrap" Text="{Binding URL}" VerticalAlignment="Top" Width="263"/>
         </GroupBox>
         <Button x:Name="btn_Anadir" Content="Añadir" HorizontalAlignment="Left" Height="33" Margin="87,217,0,0" VerticalAlignment="Top" Width="123"/>
         <Button x:Name="btn_VerLista" Content="Lista" HorizontalAlignment="Left" Height="33" Margin="251,217,0,0" VerticalAlignment="Top" Width="123"/>

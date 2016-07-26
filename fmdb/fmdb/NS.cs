@@ -13,7 +13,7 @@ namespace fmdb
         string _titulo;
         string _anio;
         int _id;
-        bool _reseniada;
+        int _reseniada;
         string _url;
 
         // Propiedades
@@ -40,7 +40,7 @@ namespace fmdb
             set { _id = value; }
         }
 
-        public bool Reseniada
+        public int Reseniada
         {
             get { return _reseniada; }
             set { _reseniada = value; }
@@ -49,11 +49,7 @@ namespace fmdb
         public string URL
         {
             get { return _url; }
-            set
-            {
-                if (value.EndsWith("wordpress.com"))
-                    _url = value;
-            }
+            set { _url = value; }
         }
 
     }
