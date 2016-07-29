@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Windows.Input;
 
 namespace fmdb
 {
@@ -13,6 +14,8 @@ namespace fmdb
 
         private NS _pelicula;
         private DAO _dao;
+
+        private string _mensajeInfo;
 
         #endregion
 
@@ -86,13 +89,72 @@ namespace fmdb
             }
         }
 
+        public bool Conectado
+        {
+            get
+            {
+                if (_dao == null)
+                    return false;
+                else
+                    return _dao.Conectado();
+            }
+        }
+
+        public string ColorConexion
+        {
+            get
+            {
+                if (Conectado)
+                    return "Green";
+                else
+                    return "Red";
+            }
+        }
+
+        public string MensajeInfo
+        {
+            get { return _mensajeInfo; }
+            set {
+                if (_mensajeInfo != value)
+                {
+                    _mensajeInfo = value;
+                    NotificarCambiosEnPropiedad("Mensaje");
+                }
+            }
+        }
+
         #endregion
 
         #region Metodos
 
+        public void Conectar()
+        {
+            _dao = null;
+            try
+            {
+                _dao = new DAO();
+                if (_dao.Conectar())
+                    MensajeInfo = "Conexion exitosa";
+            }
+            catch (Exception e)
+            {
+                MensajeInfo = e.Message;
+            }
+            NotificarCambiosEnPropiedad("ColorConexion");
+            NotificarCambiosEnPropiedad("MensajeInfo");
+        }
+
         #endregion
 
         #region Comandos
+
+        public ICommand btnConectar_Click
+        {
+            get
+            {
+                return new ComandoGenerico(o => Conectar(), o => true);
+            }
+        }
 
         #endregion
 

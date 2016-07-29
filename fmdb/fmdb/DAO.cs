@@ -10,7 +10,7 @@ namespace fmdb
     class DAO
     {
         public SQLiteConnection conn;
-        string cadenaConexion = "Data Source=" + "filmdb.db" + ";Version=3;" + "FailMissing=true;";
+        string cadenaConexion = "Data Source=" + "filmdb.db" + ";Version=3;" + "FailIfMissing=true;";
 
         public bool Conectar()
         {
@@ -36,6 +36,14 @@ namespace fmdb
             {
                 throw;
             }
+        }
+
+        public bool Conectado()
+        {
+            if (conn != null)
+                return conn.State == System.Data.ConnectionState.Open;
+            else
+                return false;
         }
     }
 }

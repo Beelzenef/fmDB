@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using System;
 
-namespace WPF_Canciones
+namespace fmdb
 {
     class ComandoGenerico : ICommand
     {
