@@ -45,5 +45,25 @@ namespace fmdb
             else
                 return false;
         }
+
+        public int Insertar(NS unNS)
+        {
+            string comando;
+
+            if (unNS != null)
+            {
+                comando = "insert into peliculas (titulo, anio, genero, reseniada, url, valoracion) values ('" +
+                        unNS.Titulo + "', '" +
+                        unNS.Anio + "', '" +
+                        unNS.Genero + "', " +
+                        unNS.Reseniada.ToString() + ", '" +
+                        unNS.URL + "', " +
+                        unNS.Valoracion.ToString() + ")";
+                SQLiteCommand cmdEjecutando = new SQLiteCommand(comando, conn);
+                return cmdEjecutando.ExecuteNonQuery();
+            }
+            else
+                return 0;
+        }
     }
 }

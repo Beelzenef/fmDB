@@ -144,6 +144,14 @@ namespace fmdb
             NotificarCambiosEnPropiedad("MensajeInfo");
         }
 
+        public void Insertar()
+        {
+            if (_dao.Insertar(_pelicula) == 1)
+                MensajeInfo = "Insercion exitosa";
+            else
+                MensajeInfo = "Fallo en insercion";
+        }
+
         #endregion
 
         #region Comandos
@@ -153,6 +161,14 @@ namespace fmdb
             get
             {
                 return new ComandoGenerico(o => Conectar(), o => true);
+            }
+        }
+
+        public ICommand btnInsertar_Click
+        {
+            get
+            { //return new Comando(this);
+                return new ComandoGenerico(o => Insertar(), o => Conectado);
             }
         }
 

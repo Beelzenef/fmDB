@@ -15,6 +15,8 @@ namespace fmdb
         int _id;
         int _reseniada;
         string _url;
+        int _valoracion;
+        string _genero;
 
         // Propiedades
 
@@ -50,6 +52,18 @@ namespace fmdb
         {
             get { return _url; }
             set { _url = value; }
+        }
+
+        public int Valoracion
+        {
+            get { return _valoracion; }
+            set { _valoracion = value; }
+        }
+
+        public string Genero
+        {
+            get { return _genero; }
+            set { _genero = value; }
         }
 
     }
